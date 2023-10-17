@@ -22,9 +22,9 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "cocos2d.h"
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "Enemy1.h"
 #include "GameScene.h"
 
 // #define USE_AUDIO_ENGINE 1
@@ -75,9 +75,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("Project2", cocos2d::Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
+        glview = GLViewImpl::createWithRect("Psyche", cocos2d::Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
 #else
-        glview = GLViewImpl::create("Project2");
+        glview = GLViewImpl::create("Psyche");
 #endif
         director->setOpenGLView(glview);
     }
@@ -110,7 +110,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // create a scene. it's an autorelease object
-    auto scene = GameScene::createScene();
+    auto scene = GameScene::create();
 
     // run
     director->runWithScene(scene);
