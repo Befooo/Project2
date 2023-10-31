@@ -12,6 +12,10 @@ public:
 
     virtual bool init();
     void update(float dt);
+    void cameraFollowPlayer(float dt);
+    cocos2d::Sprite* _player;
+  
+    cocos2d::Node* _camera;
 
     CREATE_FUNC(GameScene);
 
